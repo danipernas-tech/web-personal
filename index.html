@@ -327,6 +327,21 @@ h2{font-size:clamp(32px,4.4vw,48px);font-weight:600;letter-spacing:-.04em;line-h
 .pills{display:flex;flex-wrap:wrap;gap:8px}
 .pills span{display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:999px;font-size:14px;background:var(--glass-strong);border:.5px solid var(--glass-line);box-shadow:var(--rim)}
 
+/* proyectos con imágenes */
+.proj,.proj.wide .cols2>div{min-width:0}
+.proj.wide{grid-column:1/-1}
+.proj.wide .cols2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.strip-bar{display:flex;justify-content:space-between;align-items:center;margin:26px 0 12px}
+.strip-bar span{font-size:13px;color:var(--ink3)}
+.strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:none;height:240px;border-radius:16px;overflow:hidden;background:#0c0c0e;scroll-snap-align:start;border:.5px solid var(--hair)}
+.strip img{height:100%;width:auto;max-width:none}
+.cover{margin:-6px -6px 22px;border-radius:18px;overflow:hidden;border:.5px solid var(--hair);background:#0c0c0e;aspect-ratio:16/10}
+.cover img{width:100%;height:100%;object-fit:cover}
+.cover.paper{background:#fff;padding:18px 24px;display:grid;place-items:center}
+.cover.paper img{object-fit:contain}
+
 /* listas */
 .list{padding:10px}
 .row{display:grid;grid-template-columns:170px 1fr auto;gap:24px;align-items:start;padding:20px 22px;border-radius:18px}
@@ -362,6 +377,8 @@ h2{font-size:clamp(32px,4.4vw,48px);font-weight:600;letter-spacing:-.04em;line-h
 footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;font-size:13px;color:var(--ink3)}
 
 @media (max-width:980px){
+  .proj.wide .cols2{grid-template-columns:1fr;gap:0}
+  .proj.wide .cols2>div+div{margin-top:18px}
   .projects{grid-template-columns:1fr}
   .bivel-top{grid-template-columns:1fr;gap:28px}
   .shot{flex-basis:calc((100% - 16px)/2)}
@@ -383,6 +400,9 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
   .fact strong{font-size:22px;min-width:84px}
   .fact span{margin-top:0}
   .shot{flex-basis:84%}
+  .strip figure{height:180px;border-radius:12px}
+  .strip-bar .arrows{display:none}
+  .cover{margin:-2px -2px 18px}
   .arrows{display:none}
   .row,.edu .row,.stack .row{grid-template-columns:1fr;gap:10px;padding:18px 14px}
   .now{justify-self:start;margin-top:6px}
@@ -421,7 +441,7 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
     <div class="portrait g"><img src="foto.jpg" alt="Daniel Pernas Benito, founder de Bivel" width="800" height="800" fetchpriority="high"></div>
     <h1>Daniel Pernas Benito</h1>
     <p class="claim">Construyo producto con IA.</p>
-    <p class="lede">Founder de <b>Bivel</b>. Hago realidad aumentada con Unreal Engine y otros software 3D para <b>Mediaset</b>, y estudio DAM con el máster en <b>Data Analyst</b>. Madrid, 23 años.</p>
+    <p class="lede">Founder de <b>Bivel</b>. Hago realidad aumentada con Unreal Engine y otros software 3D para los informativos de <b>Mediaset</b>, y estudio DAM con el máster en <b>Data Analyst</b>. Madrid, 23 años.</p>
     <div class="actions">
       <a class="btn btn-solid" href="#bivel">Ver Bivel</a>
       <a class="btn btn-glass" href="https://www.linkedin.com/in/danielpernasbenito" target="_blank" rel="me noopener">LinkedIn</a>
@@ -451,7 +471,7 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
           <div class="facts">
             <div class="fact g-in"><strong class="num">14.300</strong><span>comidas registradas</span></div>
             <div class="fact g-in"><strong class="num">1.800</strong><span>entrenos registrados</span></div>
-            <div class="fact g-in"><strong class="num">52%</strong><span>sigue usándola cada semana tras 2 meses</span></div>
+            <div class="fact g-in"><strong class="num">49%</strong><span>sigue usándola cada semana tras 2 meses</span></div>
           </div>
         </div>
       </div>
@@ -477,21 +497,44 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
   <section id="proyectos">
     <div class="head"><h2>Proyectos</h2><p class="sub">Lo que he hecho en plató, con datos y por mi cuenta.</p></div>
     <div class="projects">
-      <article class="proj g">
-        <span class="kind">Producción virtual · MR Factory</span>
-        <h3>Tech Insight para Publiespaña y Mazda</h3>
-        <p>Matías Prats Chacón sale del plató de ElDesmarque y entra en un universo 3D construido alrededor del Mazda CX-6e. En MR Factory hicimos el entorno en Unreal Engine y todo lo que hay detrás.</p>
-        <div class="figs"><div><strong class="num">3</strong><span>integraciones en prime time</span></div><div><strong>Cuatro</strong><span>ElDesmarque</span></div></div>
-        <p class="tools">Unreal Engine · XR · Producción virtual</p>
+      <article class="proj g wide">
+        <div class="cols2">
+          <div>
+            <span class="kind">Producción virtual · MR Factory</span>
+            <h3>Tech Insight para Publiespaña y Mazda</h3>
+            <p>Matías Prats Chacón sale del plató de ElDesmarque y entra en un universo 3D construido alrededor del Mazda CX-6e. En MR Factory hicimos el entorno en Unreal Engine y todo lo que hay detrás.</p>
+          </div>
+          <div>
+            <div class="figs" style="margin-top:0;border-top:0;padding-top:0"><div><strong class="num">3</strong><span>integraciones en prime time</span></div><div><strong>Cuatro</strong><span>ElDesmarque</span></div></div>
+            <p class="tools" style="padding-top:14px">Unreal Engine · XR · Producción virtual</p>
+          </div>
+        </div>
+        <div class="strip-bar"><span>3 imágenes</span><div class="arrows">
+          <button class="round g-in s-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
+          <button class="round g-in s-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div></div>
+        <div class="strip" tabindex="0" aria-label="Imágenes de Tech Insight"><figure><img src="img/mazda-1.jpg" alt="Matías Prats Chacón en el plató virtual de Tech Insight, con el Mazda CX-6e y una casa de hormigón al fondo" loading="lazy"></figure><figure><img src="img/mazda-2.jpg" alt="Primer plano del presentador junto al Mazda CX-6e en el entorno 3D" loading="lazy"></figure><figure><img src="img/mazda-3.jpg" alt="Plató virtual con el rótulo del nuevo Mazda CX-6e 100% eléctrico" loading="lazy"></figure></div>
+      </article>
+      <article class="proj g wide">
+        <div class="cols2">
+          <div>
+            <span class="kind">Realidad aumentada · MR Factory · Mayo 2025</span>
+            <h3>El cónclave, desde dentro de la Capilla Sixtina</h3>
+            <p>Para explicar cómo se elegía al nuevo papa, Carlos Franganillo recorrió en Informativos Telecinco una Plaza de San Pedro y una Capilla Sixtina recreadas en 3D: las votaciones, la fumata y el Habemus Papam. Desde plató, sobre croma y sin referencias visuales.</p>
+          </div>
+          <div>
+            <p>Una producción con muy poco margen de tiempo, hecha con el equipo de MR Factory en Unreal Engine, con seguimiento de cámara Mo-Sys StarTracker y documentación histórica para que cada espacio fuese fiel al original.</p>
+            <p class="tools" style="padding-top:14px">Unreal Engine · Mo-Sys · Realidad aumentada y extendida</p>
+          </div>
+        </div>
+        <div class="strip-bar"><span>5 imágenes</span><div class="arrows">
+          <button class="round g-in s-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
+          <button class="round g-in s-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div></div>
+        <div class="strip" tabindex="0" aria-label="Imágenes del cónclave"><figure><img src="img/conclave-1.jpg" alt="Carlos Franganillo en la Capilla Sixtina recreada en 3D, junto a un atril con el libro del cónclave" loading="lazy"></figure><figure><img src="img/conclave-2.jpg" alt="Vista general de la Capilla Sixtina virtual con las mesas de los cardenales" loading="lazy"></figure><figure><img src="img/conclave-3.jpg" alt="Carlos Franganillo caminando por la Plaza de San Pedro recreada en 3D" loading="lazy"></figure><figure><img src="img/conclave-4.jpg" alt="Plaza de San Pedro en 3D con la basílica y la columnata de Bernini" loading="lazy"></figure><figure><img src="img/vaticano-azotea.jpg" alt="Plató virtual de Informativos Telecinco en una azotea frente a la Plaza de San Pedro" loading="lazy"></figure></div>
       </article>
       <article class="proj g">
-        <span class="kind">Realidad aumentada · MR Factory</span>
-        <h3>Informativos Telecinco desde el Vaticano</h3>
-        <p>Con el equipo de MR Factory llevamos el plató de Informativos Telecinco a una azotea junto a la Basílica de San Pedro y la Capilla Sixtina, con realidad aumentada en directo.</p>
-        <div class="figs"><div><strong>En directo</strong><span>Informativos Telecinco</span></div></div>
-        <p class="tools">Unreal Engine · Vizrt · AR</p>
-      </article>
-      <article class="proj g">
+        <div class="cover paper"><img src="img/etfs-1.jpg" alt="Tabla de resultados: 25.750 € aportados, 45.363,40 € de valor final y TIR anual del 15,88%" loading="lazy"></div>
         <span class="kind">Datos · Proyecto propio</span>
         <h3>Mi cartera de ETFs, simulada con datos</h3>
         <p>Mi primer proyecto de datos. Un script descarga los precios de cierre, los guarda en SQLite sin duplicar filas y simula una compra cada mes desde 2021. La TIR la calculo con mi propio algoritmo de bisección y la valido con XIRR.</p>
@@ -500,6 +543,7 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
         <a class="more" href="https://github.com/danipernas-tech/ETFs" target="_blank" rel="noopener">Ver el código en GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
       </article>
       <article class="proj g">
+        <div class="cover"><img src="img/blender-addon.jpg" alt="Script Blender Organizer abierto en el editor de Blender, con la convención de prefijos SM_, SK_, LT_ y CAM_" loading="lazy"></div>
         <span class="kind">Herramienta · Código libre</span>
         <h3>Addon de Blender para nombrar assets</h3>
         <p>Renombra y ordena los assets de una escena con la convención estándar (SM_, SK_, CAM_, LT_). Detecta el tipo de objeto, enseña un preview antes de aplicar, limpia los .001 de los duplicados y los agrupa en colecciones.</p>
@@ -521,6 +565,16 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
         <div class="figs"><div><strong class="num">6</strong><span>repos en Java</span></div><div><strong class="num">6</strong><span>en Python</span></div><div><strong class="num">2</strong><span>en JavaScript</span></div></div>
         <p class="tools">Java · Python · JavaScript · HTML y CSS</p>
         <a class="more" href="https://github.com/danipernas-tech?tab=repositories" target="_blank" rel="noopener">Ver los repositorios <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 11 11 5M6 5h5v5"/></svg></a>
+      </article>
+      <article class="proj g wide">
+        <span class="kind">Realidad aumentada · Mediaset España</span>
+        <h3>Más piezas en directo</h3>
+        <p>Otros platós virtuales y realidad aumentada que he hecho con el equipo de MR Factory para los programas de Mediaset.</p>
+        <div class="strip-bar"><span>4 imágenes</span><div class="arrows">
+          <button class="round g-in s-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
+          <button class="round g-in s-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
+        </div></div>
+        <div class="strip" tabindex="0" aria-label="Más piezas de realidad aumentada"><figure><img src="img/noche-mas-fria.jpg" alt="Plató virtual nevado de La noche más fría, con un quitanieves y dos presentadoras" loading="lazy"></figure><figure><img src="img/calleja-espacio.jpg" alt="Calleja en el espacio: el cohete recreado en 3D en plató junto a dos presentadores" loading="lazy"></figure><figure><img src="img/pieza-desguace.jpg" alt="Presentador en un desguace recreado en 3D con pilas de coches y neumáticos" loading="lazy"></figure><figure><img src="img/pieza-calle.jpg" alt="Presentador cruzando un paso de cebra en una calle recreada en 3D" loading="lazy"></figure></div>
       </article>
     </div>
   </section>
@@ -626,6 +680,13 @@ const sync=()=>{prev.disabled=rail.scrollLeft<4;next.disabled=rail.scrollLeft+ra
 prev.onclick=()=>rail.scrollBy({left:-step(),behavior:'smooth'});
 next.onclick=()=>rail.scrollBy({left:step(),behavior:'smooth'});
 rail.addEventListener('scroll',sync,{passive:true});addEventListener('resize',sync);sync();
+document.querySelectorAll('.strip').forEach(s=>{
+  const bar=s.previousElementSibling,a=bar.querySelector('.s-prev'),b=bar.querySelector('.s-next');
+  const step=()=>s.querySelector('figure').offsetWidth+10;
+  const sync=()=>{a.disabled=s.scrollLeft<4;b.disabled=s.scrollLeft+s.clientWidth>=s.scrollWidth-4};
+  a.onclick=()=>s.scrollBy({left:-step(),behavior:'smooth'});b.onclick=()=>s.scrollBy({left:step(),behavior:'smooth'});
+  s.addEventListener('scroll',sync,{passive:true});addEventListener('resize',sync);addEventListener('load',sync);sync();
+});
 document.getElementById('copy').addEventListener('click',async e=>{
   const b=e.currentTarget;
   try{await navigator.clipboard.writeText('danielpernasbenito@gmail.com');b.textContent='Copiado'}catch{b.textContent='Selecciónalo'}
