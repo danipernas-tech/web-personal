@@ -333,6 +333,10 @@ h2{font-size:clamp(32px,4.4vw,48px);font-weight:600;letter-spacing:-.04em;line-h
 .proj.wide .cols2{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
 .strip-bar{display:flex;justify-content:space-between;align-items:center;margin:26px 0 12px}
 .strip-bar span{font-size:13px;color:var(--ink3)}
+.hint{font-style:normal;display:none}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:14px}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--ink);opacity:.25;transition:opacity .2s,transform .2s}
+.dots i.on{opacity:.9;transform:scale(1.35)}
 .strip{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:16px}
 .strip::-webkit-scrollbar{display:none}
 .strip figure{flex:none;height:240px;border-radius:16px;overflow:hidden;background:#0c0c0e;scroll-snap-align:start;border:.5px solid var(--hair)}
@@ -340,7 +344,8 @@ h2{font-size:clamp(32px,4.4vw,48px);font-weight:600;letter-spacing:-.04em;line-h
 .cover{margin:-6px -6px 22px;border-radius:18px;overflow:hidden;border:.5px solid var(--hair);background:#0c0c0e;aspect-ratio:16/10}
 .cover img{width:100%;height:100%;object-fit:cover}
 .cover.paper{background:#fff;padding:18px 24px;display:grid;place-items:center}
-.cover.paper img{object-fit:contain}
+.cover.paper img{width:auto;height:auto;max-width:100%;max-height:100%;min-height:0}
+.cover.paper{grid-template-rows:minmax(0,1fr)}
 
 /* listas */
 .list{padding:10px}
@@ -400,7 +405,9 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
   .fact strong{font-size:22px;min-width:84px}
   .fact span{margin-top:0}
   .shot{flex-basis:84%}
-  .strip figure{height:180px;border-radius:12px}
+  .strip figure{height:auto;width:84%;aspect-ratio:16/9;border-radius:12px}
+  .strip img{width:100%;height:100%;object-fit:cover}
+  .hint{display:inline}
   .strip-bar .arrows{display:none}
   .cover{margin:-2px -2px 18px}
   .arrows{display:none}
@@ -509,11 +516,12 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
             <p class="tools" style="padding-top:14px">Unreal Engine · XR · Producción virtual</p>
           </div>
         </div>
-        <div class="strip-bar"><span>3 imágenes</span><div class="arrows">
+        <div class="strip-bar"><span>3 imágenes<em class="hint"> · desliza →</em></span><div class="arrows">
           <button class="round g-in s-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
           <button class="round g-in s-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
         </div></div>
         <div class="strip" tabindex="0" aria-label="Imágenes de Tech Insight"><figure><img src="img/mazda-1.jpg" alt="Matías Prats Chacón en el plató virtual de Tech Insight, con el Mazda CX-6e y una casa de hormigón al fondo" loading="lazy"></figure><figure><img src="img/mazda-2.jpg" alt="Primer plano del presentador junto al Mazda CX-6e en el entorno 3D" loading="lazy"></figure><figure><img src="img/mazda-3.jpg" alt="Plató virtual con el rótulo del nuevo Mazda CX-6e 100% eléctrico" loading="lazy"></figure></div>
+        <div class="dots" aria-hidden="true"></div>
       </article>
       <article class="proj g wide">
         <div class="cols2">
@@ -527,11 +535,12 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
             <p class="tools" style="padding-top:14px">Unreal Engine · Mo-Sys · Realidad aumentada y extendida</p>
           </div>
         </div>
-        <div class="strip-bar"><span>5 imágenes</span><div class="arrows">
+        <div class="strip-bar"><span>5 imágenes<em class="hint"> · desliza →</em></span><div class="arrows">
           <button class="round g-in s-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
           <button class="round g-in s-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
         </div></div>
         <div class="strip" tabindex="0" aria-label="Imágenes del cónclave"><figure><img src="img/conclave-1.jpg" alt="Carlos Franganillo en la Capilla Sixtina recreada en 3D, junto a un atril con el libro del cónclave" loading="lazy"></figure><figure><img src="img/conclave-2.jpg" alt="Vista general de la Capilla Sixtina virtual con las mesas de los cardenales" loading="lazy"></figure><figure><img src="img/conclave-3.jpg" alt="Carlos Franganillo caminando por la Plaza de San Pedro recreada en 3D" loading="lazy"></figure><figure><img src="img/conclave-4.jpg" alt="Plaza de San Pedro en 3D con la basílica y la columnata de Bernini" loading="lazy"></figure><figure><img src="img/vaticano-azotea.jpg" alt="Plató virtual de Informativos Telecinco en una azotea frente a la Plaza de San Pedro" loading="lazy"></figure></div>
+        <div class="dots" aria-hidden="true"></div>
       </article>
       <article class="proj g">
         <div class="cover paper"><img src="img/etfs-1.jpg" alt="Tabla de resultados: 25.750 € aportados, 45.363,40 € de valor final y TIR anual del 15,88%" loading="lazy"></div>
@@ -570,11 +579,12 @@ footer{display:flex;justify-content:space-between;gap:16px;padding:36px 0 52px;f
         <span class="kind">Realidad aumentada · Mediaset España</span>
         <h3>Más piezas en directo</h3>
         <p>Otros platós virtuales y realidad aumentada que he hecho con el equipo de MR Factory para los programas de Mediaset.</p>
-        <div class="strip-bar"><span>4 imágenes</span><div class="arrows">
+        <div class="strip-bar"><span>4 imágenes<em class="hint"> · desliza →</em></span><div class="arrows">
           <button class="round g-in s-prev" type="button" aria-label="Imagen anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 3 5 8l5 5"/></svg></button>
           <button class="round g-in s-next" type="button" aria-label="Imagen siguiente"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="m6 3 5 5-5 5"/></svg></button>
         </div></div>
         <div class="strip" tabindex="0" aria-label="Más piezas de realidad aumentada"><figure><img src="img/noche-mas-fria.jpg" alt="Plató virtual nevado de La noche más fría, con un quitanieves y dos presentadoras" loading="lazy"></figure><figure><img src="img/calleja-espacio.jpg" alt="Calleja en el espacio: el cohete recreado en 3D en plató junto a dos presentadores" loading="lazy"></figure><figure><img src="img/pieza-desguace.jpg" alt="Presentador en un desguace recreado en 3D con pilas de coches y neumáticos" loading="lazy"></figure><figure><img src="img/pieza-calle.jpg" alt="Presentador cruzando un paso de cebra en una calle recreada en 3D" loading="lazy"></figure></div>
+        <div class="dots" aria-hidden="true"></div>
       </article>
     </div>
   </section>
@@ -685,7 +695,10 @@ document.querySelectorAll('.strip').forEach(s=>{
   const step=()=>s.querySelector('figure').offsetWidth+10;
   const sync=()=>{a.disabled=s.scrollLeft<4;b.disabled=s.scrollLeft+s.clientWidth>=s.scrollWidth-4};
   a.onclick=()=>s.scrollBy({left:-step(),behavior:'smooth'});b.onclick=()=>s.scrollBy({left:step(),behavior:'smooth'});
-  s.addEventListener('scroll',sync,{passive:true});addEventListener('resize',sync);addEventListener('load',sync);sync();
+  const figs=[...s.querySelectorAll('figure')],dots=s.nextElementSibling;
+  figs.forEach(()=>dots.appendChild(document.createElement('i')));
+  const mark=()=>{const l=s.scrollLeft+8;let k=0;figs.forEach((f,i)=>{if(f.offsetLeft-s.offsetLeft<=l)k=i});if(s.scrollLeft+s.clientWidth>=s.scrollWidth-4)k=figs.length-1;[...dots.children].forEach((d,i)=>d.classList.toggle('on',i===k))};
+  s.addEventListener('scroll',()=>{sync();mark()},{passive:true});addEventListener('resize',sync);addEventListener('load',()=>{sync();mark()});sync();mark();
 });
 document.getElementById('copy').addEventListener('click',async e=>{
   const b=e.currentTarget;
