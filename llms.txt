@@ -1,0 +1,14 @@
+# Daniel Pernas Benito
+
+> Web personal de Daniel Pernas Benito (Dani Pernas), fundador de Bivel. Madrid, España.
+
+- Fundador y desarrollador de Bivel, app social de nutrición y entrenos con IA para iOS y Android (https://bivelapp.com). Lanzamiento: 1 de enero de 2027.
+- AR Unreal Engine en MR Factory para Mediaset España: realidad aumentada para Informativos Telecinco y producción virtual.
+- Estudia el Grado Superior en DAM y el Máster en Data Analyst en thePower. Antes, Software 3D y Máster en Composición Digital para VFX en U-tad.
+- Stack: Python, Java, TypeScript, SQL, React Native, Supabase, Unreal Engine, Vizrt, Blender, Claude.
+
+## Enlaces
+- Web: https://danielpernasbenito.com/
+- LinkedIn: https://www.linkedin.com/in/danielpernasbenito
+- GitHub: https://github.com/danipernas-tech
+- Bivel: https://bivelapp.com
